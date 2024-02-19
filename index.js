@@ -2,19 +2,24 @@ const buttons = document.getElementsByClassName("set");
 
 
 
-
+let mahamud = [];
 for(let buton of buttons){
     
     buton.addEventListener("click",function(){
     const leftSeats = document.getElementById("selected-set").innerText;
+   
+
+
+    
+    buton.classList.add("bg-green-500");
     if(leftSeats>=4){
       return;
     }
-   
-    buton.classList.add("bg-green-500");
+    
     // ....................
     const title= buton.innerText;
-
+  
+   
 
     const titleContainer = document.getElementById("first");
     const titleContainer2 = document.getElementById("second");
@@ -27,12 +32,14 @@ for(let buton of buttons){
     p.innerText=title;
     p2.innerText="Economy";
     p3.innerText=550;
-
+ 
     titleContainer.appendChild(p);
     titleContainer2.appendChild(p2);
     titleContainer3.appendChild(p3);
 //    ................................
-  
+
+
+// .......................
   const leftSeat = document.getElementById("selected-set");
     const textLeftSeat = leftSeat.innerText;
     const numLeftSeat = parseInt(textLeftSeat);
@@ -76,7 +83,7 @@ function checkInput(){
   const appy =document.getElementById("apply-btn");
   const leftSeats = document.getElementById("selected-set").innerText;
 
-  if(inputFiels.trim() !=="" && leftSeats>=3 ){
+  if(inputFiels.trim() !=="" && leftSeats>=4 ){
     appy.disabled = false;
     appy.classList.add("bg-green-500");
   }
@@ -113,8 +120,7 @@ appy.addEventListener("click",function(){
     const newGrands = parseInt(grands);
     const newGrands2=   totalPrice - newTotalPrice;
     grands.innerText =newGrands2;
-    // let finalGrand = newGrands - newTotalPrice;
-    // grands.appendChild(finalGrand);
+    
    }
    else{
     newTotalPrice = totalPrice *20 /100;
@@ -132,9 +138,6 @@ appy.addEventListener("click",function(){
  
 
   }
-  // else if(){
-
-  // }
  
  else{
   alert("invalid cupon");
@@ -145,6 +148,7 @@ appy.addEventListener("click",function(){
 function nextButton(){
   const phoneInput = document.getElementById("phone").value;
   const nextBtn = document.getElementById("next-btn");
+
   if( phoneInput.trim() !==""){
     nextBtn.disabled = false;
     nextBtn.classList.add("bg-green-500");
