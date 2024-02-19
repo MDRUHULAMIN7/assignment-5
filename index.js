@@ -2,27 +2,49 @@ const buttons = document.getElementsByClassName("set");
 
 
 
-let mahamud = [];
+let array = [];
 for(let buton of buttons){
+  
     
     buton.addEventListener("click",function(){
-    const leftSeats = document.getElementById("selected-set").innerText;
+     
+      const leftSeats = document.getElementById("selected-set").innerText;
 
-   
-  
+      if(leftSeats>=4){
+       
+        return;
+      }
+      buton.classList.add("bg-green-500");
+      
+     
  
 
     
-    buton.classList.add("bg-green-500");
-    if(leftSeats>=4){
-      return;
-    }
+  
     
     // ....................
     const title= buton.innerText;
   
-   
+    if( !array.includes(title) ){
 
+      
+      array.push(title);
+
+
+        console.log(title);
+     //  alert ("you can not select a ticket two time")
+     }
+     else{
+       
+      buton.setAttribute("disabled","");
+      return;
+      
+     }
+    
+    
+    // console.log( arrayTitle);
+    
+    
     const titleContainer = document.getElementById("first");
     const titleContainer2 = document.getElementById("second");
     const titleContainer3 = document.getElementById("third");
@@ -71,6 +93,9 @@ for(let buton of buttons){
         const grandTotal = parseInt(grandText);
         const grandPrice = grandTotal +550;
         setTextElementById('total-grand', grandPrice);
+
+
+   
 
 });
 
@@ -171,9 +196,9 @@ function nextButton(){
 
 // ................
 function  setTextElementById(elementId,value){
-    const element = document.getElementById(elementId);
-    element.innerText = value;
-  }
+  const element = document.getElementById(elementId);
+  element.innerText = value;
+}
 document.getElementById("conti").addEventListener("click",function(){
   window.location.reload();
 })
