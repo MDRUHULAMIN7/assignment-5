@@ -7,8 +7,10 @@ for(let buton of buttons){
     
     buton.addEventListener("click",function(){
     const leftSeats = document.getElementById("selected-set").innerText;
-   
 
+   
+  
+ 
 
     
     buton.classList.add("bg-green-500");
@@ -148,8 +150,8 @@ appy.addEventListener("click",function(){
 function nextButton(){
   const phoneInput = document.getElementById("phone").value;
   const nextBtn = document.getElementById("next-btn");
-
-  if( phoneInput.trim() !==""){
+  const leftSeats = document.getElementById("selected-set").innerText;
+  if( phoneInput.trim() !=="" && leftSeats>=1){
     nextBtn.disabled = false;
     nextBtn.classList.add("bg-green-500");
   }
